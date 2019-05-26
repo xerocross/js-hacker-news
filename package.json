@@ -1,0 +1,27 @@
+{
+  "name": "js-hacker-news",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Observable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch" : "watchify src/js-hacker-news.js -o public/js-hacker-news.js",
+    "serve" : "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xerocross/js-hacker-news.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xerocross/js-hacker-news/issues"
+  },
+  "homepage": "https://github.com/xerocross/js-hacker-news#readme",
+  "dependencies": {
+    "browserify": "^16.2.3",
+    "http-server": "^0.11.1",
+    "watchify": "^3.11.1"
+  }
+}

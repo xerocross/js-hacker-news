@@ -1,0 +1,27 @@
+body {
+    font-size: 14pt;
+}
+
+.container {
+    
+}
+
+
+.list-group-item {
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.list-group-item:nth-child(even) {
+
+}
+
+#story-items-list {
+
+}
+
+#main-loading-div {
+    font-size: 22pt;
+    text-align: center;
+}

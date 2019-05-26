@@ -1,70 +1,3 @@
-(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-module.exports = function Observable (subscribeFunction) {
-    let self = this;
-    this.subscriberUpdateFunction = function() {}
-    this.observer = {
-        next : function(val) {
-            self.subscriberUpdateFunction(val);
-        }
-    };
-    this.subscribe = (subFunction) => {
-        this.subscriberUpdateFunction = subFunction
-        subscribeFunction(this.observer);
-    }
-    this.next = function(val) {
-        this.subscriberUpdateFunction(val);
-    }
-}
-},{}],2:[function(require,module,exports){
-let Observable = require("./Observable.js");
-
-module.exports.get = function(url) {
-    console.log("using durable fetch");
-    let obs = new Observable((observer)=> {
-        const numAttempts = 3;
-        let iteration = 0;
-        let done = false;
-        function attempt () {
-            if (done || iteration > numAttempts) {
-                observer.next({
-                    status : "FAIL"
-                })
-                return;
-            }
-            fetch(url)
-                .then(function(response) {
-                    if (response.status == 200) {
-                        response.json().
-                        then((data)=> {
-                            observer.next({
-                                status : "SUCCESS",
-                                data : data
-                            })
-                        });
-                    } else {
-                        observer.next({
-                            status : "FAILED_ATTEMPT",
-                            data : data
-                        })
-                        attempt();
-                    }
-                })
-                .catch((error) => {
-                    observer.next({
-                        status : "ERROR",
-                        error : error
-                    })
-                    observer.next({
-                        status : "FAILED_ATTEMPT",
-                    })
-                    attempt();
-                });
-        }
-        attempt();
-    })
-    return obs;
-}
-},{"./Observable.js":1}],3:[function(require,module,exports){
 
 
 let topStoriesURL = "https://shaky-hacker-news.herokuapp.com/topstories";
@@ -179,4 +112,3 @@ loadButton.addEventListener("click", function() {
         })
     })
 })
-},{"./durable-fetch":2}]},{},[3]);
