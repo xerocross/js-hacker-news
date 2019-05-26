@@ -5,8 +5,8 @@
   "main": "Observable.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch" : "watchify src/js-hacker-news.js -o public/js-hacker-news.js",
-    "serve" : "http-server"
+    "watch": "watchify src/js-hacker-news.js -o public/js-hacker-news.js",
+    "serve": "http-server"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,8 @@
   "dependencies": {
     "browserify": "^16.2.3",
     "http-server": "^0.11.1",
+    "isomorphic-fetch": "^2.2.1",
+    "promise-polyfill": "^8.1.0",
     "watchify": "^3.11.1"
   }
 }

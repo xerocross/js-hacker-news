@@ -1,26 +1,15 @@
 body {
     font-size: 14pt;
 }
-
-.container {
-    
-}
-
-
-.list-group-item {
-
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.list-group-item:nth-child(even) {
-
-}
-
 #story-items-list {
-
+    height: 400px;
+    overflow-y: scroll;
+    visibility: hidden;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    padding: 0px;
 }
-
 #main-loading-div {
     font-size: 22pt;
     text-align: center;

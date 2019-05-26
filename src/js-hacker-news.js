@@ -1,4 +1,5 @@
-
+require("promise-polyfill");
+require("isomorphic-fetch");
 
 let topStoriesURL = "https://shaky-hacker-news.herokuapp.com/topstories";
 //topStoriesURL = "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty"
@@ -17,6 +18,7 @@ function buildList() {
         let li = buildListItem(storyIndex[i], stories[i]);
         ul.appendChild(li);
     }
+    document.querySelector("#story-items-list").style.visibility = "visible";
 }
 
 function getLiById( itemId) {
