@@ -1,0 +1,3 @@
+# js-hacker-news
+
+It's 2023 now. I wrote this little applet circa 2019. It worked at the time. Its purpose was to fetch news items from a proxy I set up for a HackerNews API. The proxy was intended to simulated an unstable connection and/or unstable API---one that might require multiple attempts to fetch. I home-rolled and Observable. You will see the technologies here are old, but the ideas were solid for their time, if simplified. As as often the case, rather than using an Observable packaged with a library, my goal was to write my own for practice.
